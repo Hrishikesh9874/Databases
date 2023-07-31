@@ -1,0 +1,87 @@
+//  To see all available databases
+show dbs
+
+
+//  Create (or work on) a database
+use name
+
+
+//  To check the current workin database
+db
+
+
+//  insert entries into our databases
+db.collection.insertOne({_id:1, name:"Pen", price:10.69})       **// collection is choosen by the type of things in our database //**
+
+
+//  To show all the collections
+show collections
+
+
+//  Show all the items in a specific collection
+db.collection.find()
+
+
+//  Show specific item in a collection
+db.collection.find({name: "pencil"})
+
+
+// how specific item in a collection(using greater-than querry)
+db.collection.find({price: {$gt: 1}})
+
+
+//  Return only specific field of data
+db.collection.find({_id:1}, {name:1, _id:0})                ***//   This will return only name field    //***
+
+
+//  Update a collection (Adding a new field)
+db.collection.updateOne({_id:1}, {$set {stock:32}})
+
+
+//  Delete a specific record from a collection
+db.collection.deleteOne({name:"pen})
+
+
+//  Delete complete collection
+db.collection.deleteOne()
+
+
+//  insert an array element
+db.products.insertOne(
+    {
+        _id:3,
+        name:"rubber",
+        stock:69,
+        reviews:[
+            {
+                authorName:"Sally",
+                rating:4.9,
+                comment:"One of the best"
+            },
+            {
+                authorName:"Nikhil",
+                rating:5,
+                comment:"best ever!"
+            }
+        ]
+    }
+)
+
+
+//  Update with array
+db.products.updateOne(
+    {name:"Pencil"},
+    {$set:  {
+        reviews:[
+        {
+            authorName:"Boi",
+            rating:2,
+            comment:"I'm Suleman"
+        }
+    ]
+    }}
+    
+)
+
+
+//  
